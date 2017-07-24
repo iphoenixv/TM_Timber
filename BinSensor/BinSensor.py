@@ -1,4 +1,7 @@
 import RPi.GPIO as GPIO
+import time
+import Email
+
 GPIO.setmode(GPIO.BCM)
 BinNo = 1
 
@@ -8,9 +11,9 @@ GPIO.setup(23, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
 #This function will run when the button is triggered
 def EmailFunction():
   print(“Button Triggered - Bin is full!”)
-  print(“Send Email here")
-  print(Trigger 30min delay)
-
+  SendEmail("craighissett@gmail.com", 'Bin ' + str(BinNo) + ' is full', "Please proceed")
+  print("Trigger 30min delay")
+  time.sleep(30)
   
 GPIO.add_event_detect(23, GPIO.RISING, callback=EmailFunction, bouncetime=300)
 
