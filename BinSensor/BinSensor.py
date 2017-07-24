@@ -12,6 +12,10 @@ GPIO.setup(23, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
 def EmailFunction():
   print(“Button Triggered - Bin is full!”)
   SendEmail("craighissett@gmail.com", 'Bin ' + str(BinNo) + ' is full', "Please proceed")
+  if BinNo == 1:
+    BinNo = 2
+  else:
+    BinNo = 1
   print("Trigger 30min delay")
   time.sleep(30)
   
