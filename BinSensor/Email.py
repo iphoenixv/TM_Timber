@@ -1,10 +1,10 @@
 def SendEmail(recipient, subject, body):
     import smtplib
 
-    user = "liam.oreilly@taylormadetimber.co.uk"
+    user = "noreply@taylormadetimber.co.uk"
 
-    gmail_user = "Add gmail add here"
-    gmail_pwd = "add gmail pw here"
+    gmail_user = "taylormade\no.reply"
+    gmail_pwd = "WhatALotOfS4wdust!"
     FROM = user
     TO = recipient if type(recipient) is list else [recipient]
     SUBJECT = subject
@@ -14,7 +14,7 @@ def SendEmail(recipient, subject, body):
     message = """\From: %s\nTo: %s\nSubject: %s\n\n%s
     """ % (FROM, ", ".join(TO), SUBJECT, TEXT)
     try:
-        server = smtplib.SMTP("smtp.gmail.com", 587)
+        server = smtplib.SMTP("mail.taylormadetimber.co.uk", 587)
         server.ehlo()
         server.starttls()
         server.login(gmail_user, gmail_pwd)
